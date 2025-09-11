@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z4sz^_cak^yi19(oc$d19&i1orx0x79&0cmkmrif+&il7fzxnd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'minimeeting.onrender.com']
 
 
 # Application definition
@@ -149,6 +149,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "minimeeting.onrender.com",
+    "https://minimeet.onrender.com"
+    "https://minimeeting.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
