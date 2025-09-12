@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -144,24 +145,25 @@ CSRF_COOKIE_NAME = 'disabled'
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
     "http://localhost:8080",
-    "http://127.0.0.1:3000",
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "minimeeting.onrender.com",
-    "https://minimeet.onrender.com"
-    "https://minimeeting.onrender.com",
+    "https://minimeet.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
-# Disable CSRF completely
 CSRF_COOKIE_SECURE = False
-CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False
-CSRF_COOKIE_SAMESITE = None
-CSRF_TRUSTED_ORIGINS = []
+CSRF_USE_SESSIONS = True
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8080",
+    "http://localhost:3000", 
+    "http://localhost:5173",
+    "http://127.0.0.1:8080",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+    "https://minimeet.onrender.com",
+    "https://minimeeting.onrender.com",
+]
 
 # JWT Settings
 from datetime import timedelta
